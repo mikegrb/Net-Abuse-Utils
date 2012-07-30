@@ -14,7 +14,7 @@ require Exporter;
 our @ISA = qw(Exporter);
 
 our %EXPORT_TAGS = ( 'all' => [ qw(
-	get_asn_info get_as_description get_soa_contact get_ipwi_contacts
+	get_asn_info get_peer_info get_as_description get_soa_contact get_ipwi_contacts
 	get_rdns get_dnsbl_listing get_ip_country get_asn_country
 	get_abusenet_contact is_ip get_as_company get_domain
 ) ] );
@@ -33,7 +33,7 @@ This documentation refers to Net::Abuse::Utils version 0.11.
 
 =cut
 
-our $VERSION = '0.11';
+our $VERSION = '0.11_01';
 $VERSION = eval $VERSION;
 
 # memoize('_return_rr');
@@ -161,6 +161,37 @@ sub get_asn_info {
     }
 
     return map { _strip_whitespace($_) } @{ $data_for_asn{$smallest_asn} };
+}
+
+sub get_peer_info {
+    my $ip = shift;
+
+    my $lookup    = _reverse_ip($ip) . '.peer.asn.cymru.com';
+    my @origin_as = _return_rr($lookup, 'TXT', 2) or return;
+    
+    my $return = [];
+    foreach my $as (@origin_as){
+        my @peers = split(/\s\|\s/,$as);
+        my %hash = (
+            prefix  => $peers[1],
+            cc      => $peers[2],
+            rir     => $peers[3],
+            date    => $peers[4],
+        );
+        my @asns = split(/\s/,$peers[0]);
+        foreach (@asns){ 
+            $hash{'asn'} = $_;
+            push(@$return,{
+                prefix  => $peers[1],
+                cc      => $peers[2],
+                rir     => $peers[3],
+                date    => $peers[4],
+                asn     => $_,
+            });
+        }
+    }
+    return(@$return) if wantarray;    
+    return($return);
 }
 
 sub get_as_description {
@@ -309,6 +340,11 @@ of them into your namespace with the C<:all> tag.
 
 Returns a list containing (ASN, Network/Mask, CC code, RIR, modified date)
 for the network announcing C<IP>.
+
+=item get_peer_info ( IP )
+
+Returns an array of hash references containing (ASN, Network/Mask, CC code, RIR, modified date)
+for the peers of the network announcing C<IP>.
 
 =item get_as_description ( ASN )
 

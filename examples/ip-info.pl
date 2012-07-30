@@ -3,6 +3,7 @@
 use strict;
 use warnings;
 
+use lib './lib';
 use Net::Abuse::Utils qw( :all );
 
 my %dnsbl = (
@@ -38,15 +39,31 @@ print "\nAS Info:\n";
 if (my @asn = get_asn_info($ip) ) {
     my $asn_org = get_as_description($asn[0]) || '';
     my $asn_co  = get_as_company($asn[0]) || '';
-    print "\tASN:        $asn[0] - $asn[1]\n";
-    print "\tAS  Org:    $asn_org\n";
-    print "\tClean Org:  $asn_co\n";
-    print "\tAS Country: ", get_asn_country($asn[0]), "\n";
+    print "\tASN:               $asn[0] - $asn[1]\n";
+    print "\tAS  Org:           $asn_org\n";
+    print "\tClean Org:         $asn_co\n";
+    print "\tAS Country:        ", get_asn_country($asn[0]), "\n";
+    print "\n";
+    my @peers = get_peer_info($ip);
+    if($#peers > -1){
+        print "\nPeer Info";
+
+        foreach my $peer (@peers){
+            my $peer_org = get_as_description($peer->{'asn'}) || '';
+            my $peer_co = get_as_company($peer->{'asn'}) || '';
+ 
+            print "\n";
+            print "\tPeer:              $peer->{'asn'}\n";
+            print "\tPeer Prefix:       $peer->{'prefix'}\n";
+            print "\tPeer Org:          $peer_org\n";
+            print "\tPeer Clean Org:    $peer_co\n";
+            print "\tPeer Country:      ".$peer->{'cc'}."\n";
+        }
+    }
 }
 else {
     print "\tUnknown ASN\n";
 }
-
 print "\nDNSBL Listings:\n";
 foreach my $bl (keys %dnsbl) {
     my $txt = get_dnsbl_listing($ip, $dnsbl{$bl}) || 'not listed';
