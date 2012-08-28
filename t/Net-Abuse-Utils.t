@@ -23,7 +23,7 @@ ok ( get_soa_contact('209.123.233.241') eq 'dnsadmin@nac.net',  'soa contact'   
 ok ( get_ip_country($ip)                eq 'US',                'IP Country lookup'     );
 ok ( !get_ip_country('127.0.0.1'),                              'IP Country lookup with bad ip');
 ok ( get_rdns($ip)                      eq 'mail.linode.com',   'get_rdns'              );
-ok ( (get_asn_info($ip))[0]             eq '21844',             'ASN from IP'           );
+ok ( (get_asn_info($ip))[0]             =~ /^\d+$/,             'ASN from IP'           );
 ok ( get_asn_country(21844)             eq 'US',                'AS Country lookup'     );
 ok ( !get_asn_country('urmom'),                                 'AS Country lookup w/ invalid ASN');
 ok ( get_as_description(21844) eq 'THEPLANET-AS ThePlanet.com Internet Services, Inc.', 'AS Description' );
