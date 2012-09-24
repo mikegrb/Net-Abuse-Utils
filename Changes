@@ -1,5 +1,8 @@
 Revision history for Perl extension Net::Abuse::Utils.
 
+0.12_01 2012-09-24
+    - [wesyoung.me] added get_malware function based on: http://www.team-cymru.org/Services/MHR
+
 0.12 2012-08-29
     - [wesyoung.me] test false failure bugfix
     - [wesyoung.me] get_asn_info and get_ipwi_contacts bug fixes

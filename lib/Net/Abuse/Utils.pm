@@ -16,7 +16,7 @@ our @ISA = qw(Exporter);
 our %EXPORT_TAGS = ( 'all' => [ qw(
 	get_asn_info get_peer_info get_as_description get_soa_contact get_ipwi_contacts
 	get_rdns get_dnsbl_listing get_ip_country get_asn_country
-	get_abusenet_contact is_ip get_as_company get_domain
+	get_abusenet_contact is_ip get_as_company get_domain get_malware
 ) ] );
 
 our @EXPORT_OK = ( @{ $EXPORT_TAGS{'all'} } );
@@ -33,7 +33,7 @@ This documentation refers to Net::Abuse::Utils version 0.12.
 
 =cut
 
-our $VERSION = '0.12';
+our $VERSION = '0.12_01';
 $VERSION = eval $VERSION;
 
 # memoize('_return_rr');
@@ -200,6 +200,23 @@ sub get_peer_info {
     }
     return(@$return) if wantarray;    
     return($return);
+}
+
+# test with 733a48a9cb49651d72fe824ca91e8d00
+# http://www.team-cymru.org/Services/MHR/
+
+sub get_malware {
+    my $hash = shift;
+    return unless($hash && lc($hash) =~ /^[a-z-0-9]{32}$/);
+    
+    my $lookup = $hash.'.malware.hash.cymru.com';
+
+    my $res = _return_rr($lookup, 'TXT') or return;
+    my ($last_seen,$detection_rate) = split(/ /,$res);
+    return({
+        last_seen   => $last_seen,
+        detection_rate  => $detection_rate,
+    });
 }
 
 sub get_as_description {
@@ -401,6 +418,10 @@ Returns true if C<IP> looks like an IP, false otherwise.
 =item get_domain ( IP )
 
 Takes a hostname and attempts to return the domain name.
+
+=item get_malware ( md5 )
+
+Takes a malware md5 hash and tests it against http://www.team-cymru.org/Services/MHR. Returns a HASHREF of last_seen and detection_rate.
 
 =back
 
