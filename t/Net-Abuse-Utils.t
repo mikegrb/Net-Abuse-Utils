@@ -26,8 +26,8 @@ is ( get_rdns($ip)                      , 'li8-99.members.linode.com',    'get_r
 ok ( (get_asn_info($ip))[0]             =~ /^\d+$/,             'ASN from IP'           );
 is ( get_asn_country(21844)             , 'US',                 'AS Country lookup'     );
 ok ( !get_asn_country('urmom'),                                 'AS Country lookup w/ invalid ASN');
-is ( get_as_description(21844)          , 'THEPLANET-AS SoftLayer Technologies Inc.,US', 'AS Description' );
-is ( get_as_company(21844)              , 'SoftLayer Technologies Inc.,US', 'AS Company' );
+ok ( get_as_description(21844),                                 'AS Description' );
+ok ( get_as_company(21844),                                     'AS Company' );
 is ( get_domain('some.co.uk')           , 'some.co.uk',         'get_domain'            );
 is ( get_domain('host.some.co.uk')      , 'some.co.uk',         'get_domain'            );
 is ( get_domain('some.com')             , 'some.com',           'get_domain'            );

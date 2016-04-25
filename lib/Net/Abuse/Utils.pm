@@ -156,7 +156,7 @@ sub get_asn_info {
 
     # just the first AS if multiple ASes are listed
     if ($data->[0][0] =~ /(\d+) \d+/) {
-        $$data->[0][0] = $1;
+        $data->[0][0] = $1;
     }
 
     # return just the first result, as a list
