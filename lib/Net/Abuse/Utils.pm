@@ -153,12 +153,12 @@ sub get_all_asn_info {
 sub get_asn_info {
     my $data = get_all_asn_info(shift);
     return unless $data && @$data;
-
+   
     # just the first AS if multiple ASes are listed
-    if ($data->[0][0] =~ /(\d+) \d+/) {
-        $$data->[0][0] = $1;
+    if ($data->[0][0] =~ /^(\d+) \d+/) {
+        $data->[0][0] = $1;
     }
-
+ 
     # return just the first result, as a list
     return @{ $data->[0] };
 }
