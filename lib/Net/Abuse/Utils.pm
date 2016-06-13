@@ -50,7 +50,7 @@ sub _return_rr {
     my $query = $res->query($lookup, $rr_type);
     if ($query) {
             foreach my $rr ($query->answer) {
-                if ($rr->type eq $rr_type) { 
+                if ($rr->type eq $rr_type) {
                     if    ($rr_type eq 'TXT') {
                         push @result, $rr->txtdata;
                     }
@@ -63,16 +63,16 @@ sub _return_rr {
                     last if !$concat;
                 }
             }
-            
+
             if ($concat && $concat == 2) {
                 return @result;
             }
-            else { 
+            else {
                 return join ' ', @result;
             }
     }
-    
-    return; 
+
+    return;
 }
 
 sub _return_unique {
@@ -88,14 +88,14 @@ sub _return_unique {
 
 sub _strip_whitespace {
     my $string = shift;
-    
+
     return unless $string;
-    
+
     for ($string) {
         s/^\s+//;
         s/\s+$//;
     }
-    
+
     return $string;
 }
 
@@ -111,12 +111,12 @@ sub get_ipwi_contacts {
     # it doesn't like networks very well.
     my @bits = split(/\//,$ip);
     $ip = $bits[0] if($#bits > 0);
-    
+
     my $response = whoisip_query($ip);
 
     # whoisip_query returns array ref if not found
     return unless ref($response) eq 'HASH';
-    
+
     foreach my $field (keys %$response) {
         push @addresses, Email::Address->parse($response->{$field});
     }
@@ -153,12 +153,12 @@ sub get_all_asn_info {
 sub get_asn_info {
     my $data = get_all_asn_info(shift);
     return unless $data && @$data;
-   
+
     # just the first AS if multiple ASes are listed
     if ($data->[0][0] =~ /^(\d+) \d+/) {
         $data->[0][0] = $1;
     }
- 
+
     # return just the first result, as a list
     return @{ $data->[0] };
 }
@@ -183,7 +183,7 @@ sub get_peer_info {
             date    => $peers[4],
         );
         my @asns = split(/\s/,$peers[0]);
-        foreach (@asns){ 
+        foreach (@asns){
             $hash{'asn'} = $_;
             push(@$return,{
                 prefix  => $peers[1],
@@ -204,7 +204,7 @@ sub get_peer_info {
 sub get_malware {
     my $hash = shift;
     return unless($hash && lc($hash) =~ /^[a-z0-9]{32}$/);
-    
+
     my $lookup = $hash.'.malware.hash.cymru.com';
 
     my $res = _return_rr($lookup, 'TXT') or return;
@@ -264,7 +264,7 @@ sub get_soa_contact {
         $soa_contact =~ s/\./@/ unless $soa_contact =~ m/@/;
         return $soa_contact;
     }
-    
+
     return;
 }
 
@@ -290,7 +290,7 @@ sub get_dnsbl_listing {
 }
 
 sub get_ip_country {
-     my $ip = shift;     
+     my $ip = shift;
      return (get_asn_info($ip))[2];
 }
 
@@ -306,7 +306,7 @@ sub get_asn_country {
 }
 
 sub get_abusenet_contact {
-    my $domain = shift;    
+    my $domain = shift;
     return _return_rr("$domain.contacts.abuse.net", 'TXT', 1)
 }
 
@@ -390,7 +390,7 @@ CC code, RIR, modified date) for the peers of the network announcing C<IP>.
 
 =head2 get_as_description ( ASN )
 
-Returns the AS description for C<ASN>. 
+Returns the AS description for C<ASN>.
 
 =head2 get_as_company ( ASN )
 
@@ -469,7 +469,7 @@ Patches are welcome.
 
 =head1 ACKNOWLEDGEMENTS
 
-This module was inspired by Karsten M. Self's SpamTools shell scripts, 
+This module was inspired by Karsten M. Self's SpamTools shell scripts,
 available at http://linuxmafia.com/~karsten/.
 
 Thanks as well to my employer, Linode.com, for allowing me the time to work
