@@ -1,6 +1,10 @@
 Revision history for Perl extension Net::Abuse::Utils.
 
 {{$NEXT}}
+    - Fix a typo that broke get_asn_info when multiple elements were returned.
+      Thanks to @rwfranks @NathanGibbs3 @wesyoung
+    - Update AS decscription and company tests to just verify some true value was
+      returned.  Thanks to @rwfranks @NathanGibbs3
 
 0.24  2016-03-08 07:43:15 EST
     - patch from rwfranks to remove some of the more volatile tests
