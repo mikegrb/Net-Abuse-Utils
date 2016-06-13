@@ -26,8 +26,8 @@ is ( get_rdns($ip)                      , 'li8-99.members.linode.com',    'get_r
 ok ( (get_asn_info($ip))[0]             =~ /^\d+$/,             'ASN from IP'           );
 is ( get_asn_country(21844)             , 'US',                 'AS Country lookup'     );
 ok ( !get_asn_country('urmom'),                                 'AS Country lookup w/ invalid ASN');
-is ( get_as_description(21844)          , 'THEPLANET-AS SoftLayer Technologies Inc.,US', 'AS Description' );
-is ( get_as_company(21844)              , 'SoftLayer Technologies Inc.,US', 'AS Company' );
+is ( get_as_description(21844)          , 'ALDERAN-ASN SoftLayer Technologies Inc., US', 'AS Description' );
+is ( get_as_company(21844)              , 'SoftLayer Technologies Inc., US', 'AS Company' );
 is ( get_domain('some.co.uk')           , 'some.co.uk',         'get_domain'            );
 is ( get_domain('host.some.co.uk')      , 'some.co.uk',         'get_domain'            );
 is ( get_domain('some.com')             , 'some.com',           'get_domain'            );
@@ -35,5 +35,16 @@ is ( get_domain('host.some.com')        , 'some.com',           'get_domain'    
 ok ( get_dnsbl_listing('127.0.0.2', 'bl.spamcop.net'),          'DNSBL listing check'   );
 
 like ( join(' ',get_ipwi_contacts('67.18.92.99')), qr/\w+@\w+/, 'whois contacts');
+
+$ip = '216.87.155.0';
+
+# AS      | IP               | AS Name
+#36619   | 216.87.155.0     | CGTLD - VeriSign Global Registry Services, US
+#36625   | 216.87.155.0     | KGTLD - VeriSign Global Registry Services, US
+#36628   | 216.87.155.0     | LGTLD - VeriSign Global Registry Services, US
+#36632   | 216.87.155.0     | XGTLD - VeriSign Global Registry Services, US
+
+ok(get_asn_info($ip), 'get_asn_info with multiple results..');
+ok(get_peer_info($ip), 'get_peer_info with multiple results..');
 
 done_testing;
