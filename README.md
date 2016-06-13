@@ -6,7 +6,7 @@ Net::Abuse::Utils - Routines useful for processing network abuse
 
 # VERSION
 
-version 0.24
+version 0.25
 
 # SYNOPSIS
 
@@ -20,6 +20,16 @@ Net::Abuse::Utils provides serveral functions useful for determining
 information about an IP address including contact/reporting addresses,
 ASN/network info, reverse dns, and DNSBL listing status.  Functions which take
 an IP accept either IPv6 or IPv4 IPs unless indicated otherwise.
+
+# NAME
+
+Net::Abuse::Utils - Routines useful for processing network abuse
+
+[![Build Status](https://travis-ci.org/mikegrb/Net-Abuse-Utils.png?branch=master)](https://travis-ci.org/mikegrb/Net-Abuse-Utils)
+
+# VERSION
+
+version 0.24
 
 # CONFIGURATION
 
@@ -50,7 +60,7 @@ CC code, RIR, modified date) for the peers of the network announcing `IP`.
 
 ## get\_as\_description ( ASN )
 
-Returns the AS description for `ASN`. 
+Returns the AS description for `ASN`.
 
 ## get\_as\_company ( ASN )
 
@@ -129,7 +139,7 @@ Patches are welcome.
 
 # ACKNOWLEDGEMENTS
 
-This module was inspired by Karsten M. Self's SpamTools shell scripts, 
+This module was inspired by Karsten M. Self's SpamTools shell scripts,
 available at http://linuxmafia.com/~karsten/.
 
 Thanks as well to my employer, Linode.com, for allowing me the time to work
@@ -152,6 +162,18 @@ this module's distribution.
 # COPYRIGHT AND LICENSE
 
 This software is copyright (c) 2013 by Mike Greb.
+
+This is free software; you can redistribute it and/or modify it under
+the same terms as the Perl 5 programming language system itself.
+
+# AUTHORS
+
+- mikegrb <michael@thegrebs.com>
+- Wes Young <github@barely3am.com>
+
+# COPYRIGHT AND LICENSE
+
+This software is copyright (c) 2013 by =over 4.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.

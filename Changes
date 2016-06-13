@@ -1,6 +1,8 @@
 Revision history for Perl extension Net::Abuse::Utils.
 
 {{$NEXT}}
+
+0.25  2016-06-12 21:39:45 EDT
     - Fix a typo that broke get_asn_info when multiple elements were returned.
       Thanks to @rwfranks @NathanGibbs3 @wesyoung
     - Update AS decscription and company tests to just verify some true value was

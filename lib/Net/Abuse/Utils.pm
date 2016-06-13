@@ -22,7 +22,7 @@ our %EXPORT_TAGS = ( 'all' => [ qw(
 ) ] );
 
 our @EXPORT_OK = ( @{ $EXPORT_TAGS{'all'} } );
-our $VERSION = '0.24';
+our $VERSION = '0.25';
 $VERSION = eval $VERSION;
 
 # memoize('_return_rr');
@@ -346,7 +346,7 @@ Net::Abuse::Utils - Routines useful for processing network abuse
 
 =head1 VERSION
 
-version 0.24
+version 0.25
 
 =head1 SYNOPSIS
 
@@ -360,6 +360,14 @@ Net::Abuse::Utils provides serveral functions useful for determining
 information about an IP address including contact/reporting addresses,
 ASN/network info, reverse dns, and DNSBL listing status.  Functions which take
 an IP accept either IPv6 or IPv4 IPs unless indicated otherwise.
+
+=head1 NAME
+
+Net::Abuse::Utils - Routines useful for processing network abuse
+
+=head1 VERSION
+
+version 0.24
 
 =head1 CONFIGURATION
 
@@ -501,6 +509,27 @@ Wes Young <github@barely3am.com>
 =head1 COPYRIGHT AND LICENSE
 
 This software is copyright (c) 2013 by Mike Greb.
+
+This is free software; you can redistribute it and/or modify it under
+the same terms as the Perl 5 programming language system itself.
+
+=head1 AUTHORS
+
+=over 4
+
+=item *
+
+mikegrb <michael@thegrebs.com>
+
+=item *
+
+Wes Young <github@barely3am.com>
+
+=back
+
+=head1 COPYRIGHT AND LICENSE
+
+This software is copyright (c) 2013 by =over 4.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
