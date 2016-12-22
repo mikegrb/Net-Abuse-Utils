@@ -1,3 +1,6 @@
+BEGIN { chdir 't' if -d 't' }
+use lib '../lib';
+
 BEGIN {
     unless ($ENV{RELEASE_TESTING} || $ENV{ONLINE_TESTS}) {
         require Test::More;
