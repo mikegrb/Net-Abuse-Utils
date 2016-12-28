@@ -141,7 +141,7 @@ sub get_all_asn_info {
     # 23028 | 216.90.108.0/24 | US | arin | 1998-09-25
     # 701 1239 3549 3561 7132 | 216.90.108.0/24 | US | arin | 1998-09-25
     for my $asinfo (@$data) {
-        $asinfo = { data => [ split m/ \| /, $asinfo ] };
+        $asinfo = { data => [ split m/ ?\| ?/, $asinfo ] };
         $asinfo->{length} = ( split m|/|, $asinfo->{data}[1] )[1];
     }
     $data = [ map { $_->{data} }
