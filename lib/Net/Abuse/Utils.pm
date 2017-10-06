@@ -361,14 +361,6 @@ information about an IP address including contact/reporting addresses,
 ASN/network info, reverse dns, and DNSBL listing status.  Functions which take
 an IP accept either IPv6 or IPv4 IPs unless indicated otherwise.
 
-=head1 NAME
-
-Net::Abuse::Utils - Routines useful for processing network abuse
-
-=head1 VERSION
-
-version 0.24
-
 =head1 CONFIGURATION
 
 There is a C<@RESOLVERS> package variable you can use to specify name servers
@@ -402,7 +394,7 @@ Returns the AS description for C<ASN>.
 
 =head2 get_as_company ( ASN )
 
-Similiar to C<get_as_description> but attempts to clean it up some before
+Similiar to L</get_as_description> but attempts to clean it up some before
 returning it.
 
 =head2 get_soa_contact( IP )
@@ -453,7 +445,7 @@ detection_rate.
 
 =head1 DIAGNOSTICS
 
-Each subroutine will return undef if unsuccessful.  In the furture,
+Each subroutine will return undef if unsuccessful.  In the future,
 debugging output will be available.
 
 =head1 CONFIGURATION AND ENVIRONMENT
@@ -512,50 +504,6 @@ This software is copyright (c) 2013 by Mike Greb.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
-
-=head1 AUTHORS
-
-=over 4
-
-=item *
-
-mikegrb <michael@thegrebs.com>
-
-=item *
-
-Wes Young <github@barely3am.com>
-
-=back
-
-=head1 COPYRIGHT AND LICENSE
-
-This software is copyright (c) 2013 by =over 4.
-
-This is free software; you can redistribute it and/or modify it under
-the same terms as the Perl 5 programming language system itself.
-
-=head1 AUTHORS
-
-=over 4
-
-=item *
-
-mikegrb <michael@thegrebs.com>
-
-=item *
-
-Wes Young <github@barely3am.com>
-
-=back
-
-=head1 COPYRIGHT AND LICENSE
-
-This software is copyright (c) 2013 by =over 4.
-
-This is free software; you can redistribute it and/or modify it under
-the same terms as the Perl 5 programming language system itself.
-
-=cut
 
 __DATA__
 # from http://spamcheck.freeapp.net/two-level-tlds
