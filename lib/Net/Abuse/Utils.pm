@@ -505,6 +505,8 @@ This software is copyright (c) 2013 by Mike Greb.
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
 
+=cut
+
 __DATA__
 # from http://spamcheck.freeapp.net/two-level-tlds
 # a source for more current/kept up to date data would be greatly
