@@ -117,12 +117,12 @@ sub get_ipwi_contacts {
     # whoisip_query returns array ref if not found
     return unless ref($response) eq 'HASH';
 
-    foreach my $field (keys %$response) {
+    my @fields = exists $response->{'abuse-mailbox'} ? ( 'abuse-mailbox' ) : keys %$response;
+    foreach my $field (@fields) {
         push @addresses, Email::Address->parse($response->{$field});
     }
 
     @addresses = map { $_->address } @addresses;
-
     return _return_unique (\@addresses);
 }
 
