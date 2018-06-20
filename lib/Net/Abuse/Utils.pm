@@ -361,14 +361,6 @@ information about an IP address including contact/reporting addresses,
 ASN/network info, reverse dns, and DNSBL listing status.  Functions which take
 an IP accept either IPv6 or IPv4 IPs unless indicated otherwise.
 
-=head1 NAME
-
-Net::Abuse::Utils - Routines useful for processing network abuse
-
-=head1 VERSION
-
-version 0.25
-
 =head1 CONFIGURATION
 
 There is a C<@RESOLVERS> package variable you can use to specify name servers

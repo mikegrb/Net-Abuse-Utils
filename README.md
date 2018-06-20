@@ -21,16 +21,6 @@ information about an IP address including contact/reporting addresses,
 ASN/network info, reverse dns, and DNSBL listing status.  Functions which take
 an IP accept either IPv6 or IPv4 IPs unless indicated otherwise.
 
-# NAME
-
-Net::Abuse::Utils - Routines useful for processing network abuse
-
-[![Build Status](https://travis-ci.org/mikegrb/Net-Abuse-Utils.png?branch=master)](https://travis-ci.org/mikegrb/Net-Abuse-Utils)
-
-# VERSION
-
-version 0.25
-
 # CONFIGURATION
 
 There is a `@RESOLVERS` package variable you can use to specify name servers
