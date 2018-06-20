@@ -50,10 +50,10 @@ $ip = '216.87.155.0';
 ok(get_asn_info($ip), 'get_asn_info with multiple results..');
 ok(get_peer_info($ip), 'get_peer_info with multiple results..');
 
-$ip = '18.0.0.0';
+$ip = '18.0.0.1';
 # no modification time:
 # dig +short 0.0.0.18.origin.asn.cymru.com TXT
-# "3 | 18.0.0.0/8 | US | arin |"
+# "3 | 18.0.0.1/8 | US | arin |"
 my @result = get_asn_info( $ip );
 is( $result[3], 'arin', "${ip} has RIR 'arin' and not 'arin |'" );
 
