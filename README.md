@@ -6,7 +6,7 @@ Net::Abuse::Utils - Routines useful for processing network abuse
 
 # VERSION
 
-version 0.25
+version 0.26
 
 # SYNOPSIS
 
@@ -29,7 +29,7 @@ Net::Abuse::Utils - Routines useful for processing network abuse
 
 # VERSION
 
-version 0.24
+version 0.25
 
 # CONFIGURATION
 
@@ -64,7 +64,7 @@ Returns the AS description for `ASN`.
 
 ## get\_as\_company ( ASN )
 
-Similiar to `get_as_description` but attempts to clean it up some before
+Similiar to ["get\_as\_description"](#get_as_description) but attempts to clean it up some before
 returning it.
 
 ## get\_soa\_contact( IP )
@@ -115,7 +115,7 @@ detection\_rate.
 
 # DIAGNOSTICS
 
-Each subroutine will return undef if unsuccessful.  In the furture,
+Each subroutine will return undef if unsuccessful.  In the future,
 debugging output will be available.
 
 # CONFIGURATION AND ENVIRONMENT
@@ -162,18 +162,6 @@ this module's distribution.
 # COPYRIGHT AND LICENSE
 
 This software is copyright (c) 2013 by Mike Greb.
-
-This is free software; you can redistribute it and/or modify it under
-the same terms as the Perl 5 programming language system itself.
-
-# AUTHORS
-
-- mikegrb <michael@thegrebs.com>
-- Wes Young <github@barely3am.com>
-
-# COPYRIGHT AND LICENSE
-
-This software is copyright (c) 2013 by =over 4.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.

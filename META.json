@@ -58,8 +58,10 @@
          "web" : "https://github.com/mikegrb/Net-Abuse-Utils"
       }
    },
-   "version" : "0.25",
+   "version" : "0.26",
    "x_contributors" : [
+      "Ben Bullock <benkasminbullock@gmail.com>",
+      "Elmar S. Heeb <elmar@heebs.ch>",
       "Wes Young <wes@barely3am.com>"
    ]
 }
