@@ -7,7 +7,7 @@ use warnings;
 
 use Net::DNS;
 use Net::Whois::IP 1.11 'whoisip_query';
-use Email::Address;
+use Email::Address::XS;
 use Net::IP;
 # use Memoize;
 
@@ -119,10 +119,10 @@ sub get_ipwi_contacts {
 
     my @fields = exists $response->{'abuse-mailbox'} ? ( 'abuse-mailbox' ) : keys %$response;
     foreach my $field (@fields) {
-        push @addresses, Email::Address->parse($response->{$field});
+        push @addresses, Email::Address::XS->parse($response->{$field});
     }
 
-    @addresses = map { $_->address } @addresses;
+    @addresses = grep { defined $_ } map { $_->address } @addresses;
     return _return_unique (\@addresses);
 }
 
@@ -458,7 +458,7 @@ may be made available in the future via an import flag to use.
 
 This module makes use of the following modules:
 
-L<Net::IP>, L<Net::DNS>, L<Net::Whois::IP>, and L<Email::Address>
+L<Net::IP>, L<Net::DNS>, L<Net::Whois::IP>, and L<Email::Address::XS>
 
 =head1 BUGS AND LIMITATIONS
 
