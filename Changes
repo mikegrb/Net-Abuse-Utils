@@ -1,6 +1,8 @@
 Revision history for Perl extension Net::Abuse::Utils.
 
 {{$NEXT}}
+
+0.27  2018-06-30 21:37:10 EDT
     - replace unmaintained Email::Address with Email::Address::XS
 
 0.26  2018-06-19 22:31:16 MDT
