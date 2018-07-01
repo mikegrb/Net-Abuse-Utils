@@ -118,7 +118,7 @@ may be made available in the future via an import flag to use.
 
 This module makes use of the following modules:
 
-[Net::IP](https://metacpan.org/pod/Net::IP), [Net::DNS](https://metacpan.org/pod/Net::DNS), [Net::Whois::IP](https://metacpan.org/pod/Net::Whois::IP), and [Email::Address](https://metacpan.org/pod/Email::Address)
+[Net::IP](https://metacpan.org/pod/Net::IP), [Net::DNS](https://metacpan.org/pod/Net::DNS), [Net::Whois::IP](https://metacpan.org/pod/Net::Whois::IP), and [Email::Address::XS](https://metacpan.org/pod/Email::Address::XS)
 
 # BUGS AND LIMITATIONS
 

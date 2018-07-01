@@ -21,7 +21,7 @@ my %WriteMakefileArgs = (
   "MIN_PERL_VERSION" => "5.006",
   "NAME" => "Net::Abuse::Utils",
   "PREREQ_PM" => {
-    "Email::Address" => 0,
+    "Email::Address::XS" => 0,
     "Net::DNS" => 0,
     "Net::IP" => 0,
     "Net::Whois::IP" => "1.11"
@@ -34,7 +34,7 @@ my %WriteMakefileArgs = (
 
 
 my %FallbackPrereqs = (
-  "Email::Address" => 0,
+  "Email::Address::XS" => 0,
   "ExtUtils::MakeMaker" => 0,
   "Net::DNS" => 0,
   "Net::IP" => 0,

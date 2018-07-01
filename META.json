@@ -38,7 +38,7 @@
       },
       "runtime" : {
          "requires" : {
-            "Email::Address" : "0",
+            "Email::Address::XS" : "0",
             "Net::DNS" : "0",
             "Net::IP" : "0",
             "Net::Whois::IP" : "1.11",
