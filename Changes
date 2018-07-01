@@ -1,6 +1,7 @@
 Revision history for Perl extension Net::Abuse::Utils.
 
 {{$NEXT}}
+    - replace unmaintained Email::Address with Email::Address::XS
 
 0.26  2018-06-19 22:31:16 MDT
     - only return abuse-mailbox from get_ipwi_contacts if we got the field
