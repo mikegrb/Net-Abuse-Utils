@@ -356,7 +356,7 @@ version 0.27
 
 =head1 DESCRIPTION
 
-Net::Abuse::Utils provides serveral functions useful for determining
+Net::Abuse::Utils provides several functions useful for determining
 information about an IP address including contact/reporting addresses,
 ASN/network info, reverse dns, and DNSBL listing status.  Functions which take
 an IP accept either IPv6 or IPv4 IPs unless indicated otherwise.
@@ -380,7 +380,7 @@ for the network announcing C<IP>.
 
 =head2 get_all_asn_info ( IP )
 
-Returns a reference to a list of listrefs containting ASN(s), Network,Mask,
+Returns a reference to a list of listrefs containing ASN(s), Network,Mask,
 CC code, RIR, and modified date fall all networks announcing C<IP>.
 
 =head2 get_peer_info ( IP )
@@ -394,7 +394,7 @@ Returns the AS description for C<ASN>.
 
 =head2 get_as_company ( ASN )
 
-Similiar to L</get_as_description> but attempts to clean it up some before
+Similar to L</get_as_description> but attempts to clean it up some before
 returning it.
 
 =head2 get_soa_contact( IP )
